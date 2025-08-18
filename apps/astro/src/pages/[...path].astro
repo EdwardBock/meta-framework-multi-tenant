@@ -1,0 +1,47 @@
+---
+import {TenantRepository} from "@mfmt/cms";
+import App from '~/components/App.tsx'
+
+interface Params {
+    path: string
+}
+
+const {
+    path,
+} = Astro.params;
+
+const url = new URL(Astro.request.url);
+const host = url.hostname;
+const repo = TenantRepository(host);
+const result = await repo?.getPage(`/${path ?? ""}`);
+
+if(!repo || !result){
+    return new Response(null, { status: 404 });
+}
+
+const tenant = {
+    slug: await repo.getSlug(),
+}
+
+console.debug("Generating page...", path, result?.page);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+        <link rel="stylesheet" href={`/themes/${tenant.slug}.css`} />
+	</head>
+	<body>
+		<h1>{result?.page.title}</h1>
+        <App
+             client:load
+             value={result.page.blocks}
+             tenant={tenant}
+             context={result.context}
+        />
+	</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "meta-framework-multi-tenant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "build:nextjs": "turbo run build --filter=@mfmt/nextjs",
+    "dev": "turbo run dev",
+    "dev:astro": "turbo run dev --filter=@mfmt/astro",
+    "dev:nextjs": "turbo run dev --filter=@mfmt/nextjs",
+    "dev:react-router": "turbo run dev --filter=@mfmt/react-router",
+    "dev:tanstack": "turbo run dev --filter=@mfmt/tanstack",
+    "dev:qwik": "turbo run dev --filter=@mfmt/qwik",
+    "start:nextjs": "turbo run start --filter=@mfmt/nextjs",
+    "lint": "turbo run lint",
+    "storybook": "turbo run storybook"
+  },
+  "keywords": [],
+  "author": "Edward Bock <me@edwardbock.de> (https://www.edwardbock.de/)",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "turbo": "^2.5.6"
+  },
+  "volta": {
+    "node": "22.18.0"
+  }
+}

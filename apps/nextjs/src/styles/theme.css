@@ -1,0 +1,16 @@
+@import "./tokens/design-system.css";
+
+html {
+  background: var(--color-background);
+  color: var(--color-on-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: system-ui;
+  margin: 0;
+}
+
+a {
+  color: var(--color-link);
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@mfmt/react-router",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ui:copy-themes": "./bin/copy-themes.sh",
+    "ui:link-themes": "./bin/link-themes.sh",
+    "predev": "pnpm ui:link-themes",
+    "prebuild": "pnpm ui:copy-themes",
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@mfmt/cms": "workspace:*",
+    "@mfmt/service": "workspace:*",
+    "@mfmt/ui": "workspace:*",
+    "@react-router/node": "^7.7.1",
+    "@react-router/serve": "^7.7.1",
+    "@tanstack/react-query": "^5.85.3",
+    "isbot": "^5.1.27",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0",
+    "react-router": "^7.7.1"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.7.1",
+    "@types/node": "^20",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

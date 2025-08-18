@@ -1,0 +1,29 @@
+{
+  "name": "@mfmt/astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "ui:copy-themes": "./bin/copy-themes.sh",
+    "ui:link-themes": "./bin/link-themes.sh",
+    "predev": "pnpm ui:link-themes",
+    "prebuild": "pnpm ui:copy-themes",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.4.1",
+    "@astrojs/react": "^4.3.0",
+    "@mfmt/cms": "workspace:*",
+    "@mfmt/service": "workspace:*",
+    "@mfmt/ui": "workspace:*",
+    "@tanstack/react-query": "^5.85.3",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "astro": "^5.12.9",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-error-boundary": "^6.0.0"
+  }
+}

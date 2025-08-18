@@ -1,0 +1,33 @@
+{
+  "name": "@mfmt/nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "ui:copy-themes": "./bin/copy-themes.sh",
+    "ui:link-themes": "./bin/link-themes.sh",
+    "predev": "pnpm ui:link-themes",
+    "prebuild": "pnpm ui:copy-themes",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mfmt/cms": "workspace:*",
+    "@mfmt/service": "workspace:*",
+    "@mfmt/ui": "workspace:*",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-error-boundary": "^6.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "typescript": "^5"
+  }
+}
