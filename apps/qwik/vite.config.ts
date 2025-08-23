@@ -52,6 +52,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         "Cache-Control": "public, max-age=0",
       },
       host: "0.0.0.0",
+      allowedHosts: true,
     },
     preview: {
       headers: {
