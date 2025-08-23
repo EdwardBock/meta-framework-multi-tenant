@@ -31,20 +31,20 @@
     "@mfmt/service": "workspace:*"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.15.0",
-    "@builder.io/qwik-city": "^1.15.0",
+    "@builder.io/qwik": "^1.16.0",
+    "@builder.io/qwik-city": "^1.16.0",
     "@builder.io/qwik-react": "^0.5.6",
     "@eslint/js": "latest",
-    "@types/node": "20.14.11",
-    "eslint": "9.25.1",
-    "eslint-plugin-qwik": "^1.15.0",
-    "globals": "16.0.0",
-    "prettier": "3.3.3",
-    "typescript": "5.4.5",
-    "typescript-eslint": "8.26.1",
+    "@types/node": "20.19.11",
+    "eslint": "9.34.0",
+    "eslint-plugin-qwik": "^1.16.0",
+    "globals": "16.3.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.40.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "*",
-    "vite": "5.3.5",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite": "5.4.19",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }
