@@ -7,23 +7,23 @@
     "ui:link-themes": "./bin/link-themes.sh",
     "predev": "pnpm ui:link-themes",
     "prebuild": "pnpm ui:copy-themes",
-    "dev": "astro dev",
+    "dev": "astro dev --host --port 4321",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro preview  --host --port 4321",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.3",
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/node": "9.5.1",
+    "@astrojs/react": "4.4.2",
     "@mfmt/cms": "workspace:*",
     "@mfmt/service": "workspace:*",
     "@mfmt/ui": "workspace:*",
-    "@tanstack/react-query": "^5.85.5",
-    "@types/react": "^19.1.11",
-    "@types/react-dom": "^19.1.7",
-    "astro": "^5.13.3",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-error-boundary": "^6.0.0"
+    "@tanstack/react-query": "5.90.12",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "astro": "5.16.5",
+    "react": "19.2.2",
+    "react-dom": "19.2.2",
+    "react-error-boundary": "6.0.0"
   }
 }

@@ -2,8 +2,3 @@ packages:
   - packages/*
   - apps/**
   - '!**/test/**'
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp

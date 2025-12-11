@@ -3,14 +3,7 @@ import Blocks from "@/blocks/Blocks";
 import {loadData} from "./data";
 import styles from "./page.module.css";
 
-type Params = {
-    host: string
-    segments: string[]
-}
-
-export type Props = {
-    params: Promise<Params>
-}
+export type Props = PageProps<"/tenant/[host]/[[...segments]]">
 
 export const revalidate = 60;
 
@@ -19,7 +12,7 @@ export async function generateStaticParams() {
     return [];
 }
 
-export default async function Home(props: Props) {
+export default async function PortalPage(props: Props) {
 
     const data = await loadData(props);
 

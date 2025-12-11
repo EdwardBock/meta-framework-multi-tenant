@@ -1,6 +1,6 @@
-import { MiddlewareConfig, type NextRequest, NextResponse } from 'next/server'
+import { ProxyConfig, type NextRequest, NextResponse } from 'next/server'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl
 
   const hostname = String(request.headers.get("x-forwarded-host")?.split(":")[0]);
@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
   return NextResponse.rewrite(new URL(`/tenant/${hostname}${pathname}?${searchParams.toString()}`, request.url));
 }
 
-export const config: MiddlewareConfig = {
+export const config: ProxyConfig = {
   matcher: [
     /*
      * Match all paths except for:

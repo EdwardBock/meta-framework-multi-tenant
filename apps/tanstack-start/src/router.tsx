@@ -1,22 +1,17 @@
-import { createRouter as createTanStackRouter } from '@tanstack/react-router'
-import { routeTree } from './routeTree.gen'
-import { DefaultCatchBoundary } from './components/DefaultCatchBoundary'
-import { NotFound } from './components/NotFound'
+import {createRouter} from '@tanstack/react-router'
+import {routeTree} from './routeTree.gen'
+import {DefaultCatchBoundary} from './components/DefaultCatchBoundary'
+import {NotFound} from './components/NotFound'
 
-export function createRouter() {
-  const router = createTanStackRouter({
-    routeTree,
-    defaultPreload: 'intent',
-    defaultErrorComponent: DefaultCatchBoundary,
-    defaultNotFoundComponent: () => <NotFound />,
-    scrollRestoration: true,
-  })
 
-  return router
-}
+export function getRouter() {
+    const router = createRouter({
+        routeTree,
+        defaultPreload: 'intent',
+        scrollRestoration: true,
+        defaultErrorComponent: DefaultCatchBoundary,
+        defaultNotFoundComponent: () => <NotFound />,
+    })
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: ReturnType<typeof createRouter>
-  }
+    return router
 }

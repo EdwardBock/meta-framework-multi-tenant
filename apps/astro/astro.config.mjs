@@ -16,8 +16,9 @@ export default defineConfig({
     }),
     vite: {
         server: {
-            allowedHosts: true,
+            allowedHosts: ['tenant_one.local', 'tenant_two.local', 'localhost'],
             host: "0.0.0.0",
+            port: 4321,
         },
     },
 });
