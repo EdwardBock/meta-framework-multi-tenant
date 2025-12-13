@@ -9,11 +9,12 @@ export type Block = {
     blockType: string
 }
 
+export type Context = Record<string, string>
 
 type Props = {
     value: Block[]
     tenant: Tenant
-    context: Record<string, string>
+    context: Context
 }
 
 export default function Blocks(
