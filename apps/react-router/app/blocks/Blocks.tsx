@@ -9,9 +9,7 @@ export type Block = {
     blockType: string
 }
 
-export type Context = {
-    id: string|null
-}
+export type Context = Record<string, string>
 
 type Props = {
     value: Block[]
