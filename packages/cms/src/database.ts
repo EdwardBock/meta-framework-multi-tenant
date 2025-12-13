@@ -1,21 +1,21 @@
 // import "server-only";
 
-type Database = {
+export type Database = {
     [slug: string]: Tenant
 }
 
-type Tenant = {
+export type Tenant = {
     hosts: string[]
     pages: Array<Page>
 }
 
-type Page = {
+export type Page = {
     path: string
     title: string
     blocks: Array<Block>
 }
 
-type Block = {
+export type Block = {
     blockType: string
 }
 
@@ -65,6 +65,24 @@ export const Database: Database = {
                 blocks: [
                     {
                         blockType: "LoginFormBlock"
+                    }
+                ]
+            },
+            {
+                title: "Event Product",
+                path: "/events/:eventId/products/:productId",
+                blocks: [
+                    {
+                        blockType: "EventProductDetails"
+                    }
+                ]
+            },
+            {
+                title: "User Settings",
+                path: "/users/:userId/settings",
+                blocks: [
+                    {
+                        blockType: "UserSettingsBlock"
                     }
                 ]
             }

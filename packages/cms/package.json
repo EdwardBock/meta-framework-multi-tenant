@@ -2,18 +2,24 @@
   "name": "@mfmt/cms",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "src/index.ts",
   "exports": {
     ".": "./src/index.ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest --watch"
   },
   "keywords": [],
   "author": "Edward Bock <me@edwardbock.de> (https://www.edwardbock.de/)",
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
-    "server-only": "^0.0.1"
+    "server-only": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.3",
+    "vitest": "^2.0.0"
   }
 }
