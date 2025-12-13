@@ -15,7 +15,7 @@ export const getPage = createServerFn({
         const page =  await repo?.getPage(path);
 
         if(!page) {
-            throw notFound()
+            throw notFound();
         }
 
         return page;

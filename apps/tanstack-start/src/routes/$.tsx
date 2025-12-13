@@ -18,6 +18,12 @@ export const Route = createFileRoute('/$')({
         };
     },
     head: ({loaderData}) => ({
+	    links: [
+		    {
+					rel: "stylesheet",
+					href: loaderData?.theme,
+		    }
+	    ],
         meta: [
             {
                 name: 'description',
@@ -34,11 +40,10 @@ function App() {
     const {_splat} = Route.useParams();
     const path = `/${_splat}`;
 
-    const {theme, page, slug, context} = Route.useLoaderData();
+    const {page, slug, context} = Route.useLoaderData();
 
     return (
         <div className="p-2">
-            <link rel="stylesheet" href={`${theme}`}/>
             <h3>{page.title}</h3>
             <p>Path: {path}</p>
             <main>
