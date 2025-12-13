@@ -1,4 +1,4 @@
-import {BlocksMap} from '@/blocks/BlocksMap'
+import {BlocksMap} from '@/glue/payload/BlocksMap'
 import {ErrorBoundary} from "react-error-boundary";
 
 type Tenant = {

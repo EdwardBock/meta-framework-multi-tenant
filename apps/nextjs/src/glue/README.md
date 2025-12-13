@@ -1,3 +1,3 @@
 # Blocks
 
-This is the glue that connects our internal ui components with the content result from the service.
+This is the glue that connects our ui components with landingpages from cms and data from services.

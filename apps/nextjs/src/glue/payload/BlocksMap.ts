@@ -13,20 +13,20 @@ type BlocksMap = {
 export const BlocksMap: BlocksMap = {
     // whitelabel blocks that are used if no tenant specific block is available
     core: {
-        AccordionBlock: dynamic(() => import('@/blocks/core/AccordionBlock')),
-        Banner: dynamic(() => import('@/blocks/core/Banner')),
-        Quote: dynamic(() => import('@/blocks/core/QuoteBlock')),
-        Ticket: dynamic(() => import('@/blocks/core/Ticket')),
-        WelcomeBlock: dynamic(() => import('@/blocks/core/WelcomeBlock')),
-        ProductSearch: dynamic(()=> import('@/blocks/core/ProductSearch')),
-        ProductDetails: dynamic(()=> import('@/blocks/core/ProductDetails')),
+        AccordionBlock: dynamic(() => import('@/glue/payload/core/AccordionBlock')),
+        Banner: dynamic(() => import('@/glue/payload/core/Banner')),
+        Quote: dynamic(() => import('@/glue/payload/core/QuoteBlock')),
+        Ticket: dynamic(() => import('@/glue/payload/core/Ticket')),
+        WelcomeBlock: dynamic(() => import('@/glue/payload/core/WelcomeBlock')),
+        ProductSearch: dynamic(()=> import('@/glue/payload/core/ProductSearch')),
+        ProductDetails: dynamic(()=> import('@/glue/payload/core/ProductDetails')),
     },
     // blocks specific to tenant one
     tenant_one: {
-        Banner: dynamic(() => import('./tenant_one/Banner')),
+        Banner: dynamic(() => import('@/glue/payload/tenant_overwrite/tenant_one/Banner')),
     },
     // blocks specific to tenant two
     tenant_two: {
-        Ticket: dynamic(() => import('./tenant_two/Ticket')),
+        Ticket: dynamic(() => import('@/glue/payload/tenant_overwrite/tenant_two/Ticket')),
     },
 }

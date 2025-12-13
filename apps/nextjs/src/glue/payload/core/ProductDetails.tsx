@@ -1,7 +1,5 @@
 import {ProductService} from "@mfmt/service";
-import Link from "next/link";
-import {Context} from "@/blocks/Blocks";
-import Image from "next/image";
+import {Context} from "@/glue/payload/Blocks";
 
 export default async function ProductDetails(props: {context: Context}) {
     const product = await ProductService().getProductById(parseInt(props.context.id ?? ""));
