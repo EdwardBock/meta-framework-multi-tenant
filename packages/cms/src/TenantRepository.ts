@@ -84,6 +84,10 @@ export default function TenantRepository(host: string){
         async getSlug(){
             return slug;
         },
+	    async getNavigation(){
+		    await delay(1000);
+				return data.navigation;
+	    },
         async getPage(path: string){
             await delay(1000);
 

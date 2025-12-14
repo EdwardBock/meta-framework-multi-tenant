@@ -4,9 +4,15 @@ export type Database = {
     [slug: string]: Tenant
 }
 
-export type Tenant = {
+type PagePaths<T extends Page> = T['path'];
+
+export type Tenant<T extends Page = Page> = {
     hosts: string[]
-    pages: Array<Page>
+		navigation: Array<{
+			label: string
+			path: PagePaths<T>
+		}>
+    pages: Array<T>
 }
 
 export type Page = {
@@ -22,6 +28,20 @@ export type Block = {
 export const Database: Database = {
     "tenant_one": {
         hosts: ["tenant_one.local"],
+	    navigation: [
+		    {
+					label: "Home",
+			    path: "/"
+		    },
+		    {
+			    label: "Products",
+			    path: "/products"
+		    },
+		    {
+			    label: "Login",
+			    path: "/login"
+		    }
+	    ],
         pages: [
             {
                 title: "Home T1",
@@ -90,6 +110,16 @@ export const Database: Database = {
     },
     "tenant_two": {
         hosts: ["tenant_two.local"],
+	    navigation: [
+		    {
+			    label: "Home",
+			    path: "/"
+		    },
+		    {
+			    label: "Sign in",
+			    path: "/sign-in"
+		    }
+	    ],
         pages: [
             {
                 title: "Home T2",

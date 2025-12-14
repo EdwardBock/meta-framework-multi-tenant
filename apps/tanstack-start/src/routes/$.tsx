@@ -1,8 +1,8 @@
 import {createFileRoute} from '@tanstack/react-router'
-import {getTheme} from "~/data/theme";
 import {getPage} from "~/data/page";
 import Blocks from "~/blocks/Blocks";
 import {getSlug} from "~/data/slug";
+import {useMemo} from "react";
 
 export const Route = createFileRoute('/$')({
     component: App,
@@ -10,20 +10,14 @@ export const Route = createFileRoute('/$')({
         const {_splat} = args.params;
         const path = `/${_splat}`
         const result = await getPage({data: {path}});
+				console.debug("PAGE", result);
         return {
             page: result.page,
             context: result.context,
             slug: await getSlug(),
-            theme: await getTheme(),
         };
     },
     head: ({loaderData}) => ({
-	    links: [
-		    {
-					rel: "stylesheet",
-					href: loaderData?.theme,
-		    }
-	    ],
         meta: [
             {
                 name: 'description',
@@ -42,12 +36,18 @@ function App() {
 
     const {page, slug, context} = Route.useLoaderData();
 
+		console.debug("APP", page);
+
+	const tenant = useMemo(() => {
+		return {slug};
+	}, [slug]);
+
     return (
         <div className="p-2">
             <h3>{page.title}</h3>
             <p>Path: {path}</p>
             <main>
-                <Blocks value={page.blocks} tenant={{slug}} context={context}/>
+                <Blocks value={page.blocks} tenant={tenant} context={context}/>
             </main>
         </div>
     )

@@ -27,7 +27,7 @@ export default function Blocks(
 
     return (
         <>
-            {value.map(async (block, index) => {
+            {value.map((block, index) => {
 
                 const BlockComponent = BlocksMap[tenant.slug]?.[block.blockType]
                     ?? BlocksMap?.core?.[block.blockType]

@@ -1,14 +1,23 @@
 /// <reference types="vite/client" />
-import {createRootRoute, HeadContent, Scripts,} from '@tanstack/react-router'
+import {createRootRoute, HeadContent, Link, Scripts,} from '@tanstack/react-router'
 import {TanStackRouterDevtools} from '@tanstack/react-router-devtools'
 import * as React from 'react'
 import {DefaultCatchBoundary} from '~/components/DefaultCatchBoundary'
 import {NotFound} from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
 import {seo} from '~/utils/seo'
+import {getTheme} from "~/data/theme";
+import {getNavigation} from "~/data/navigation";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
 export const Route = createRootRoute({
-  head: () => ({
+	loader: async ()=>{
+		return {
+			theme: await getTheme(),
+			navigation: await getNavigation(),
+		}
+	},
+  head: ({loaderData}) => ({
     meta: [
       {
         charSet: 'utf-8',
@@ -24,6 +33,10 @@ export const Route = createRootRoute({
       }),
     ],
     links: [
+	    {
+		    rel: "stylesheet",
+		    href: loaderData?.theme ?? "",
+	    },
       { rel: 'stylesheet', href: appCss },
       {
         rel: 'apple-touch-icon',
@@ -51,14 +64,31 @@ export const Route = createRootRoute({
   shellComponent: RootDocument,
 })
 
+const queryClient = new QueryClient()
+
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const {navigation} = Route.useLoaderData();
+	console.debug("Root", navigation);
   return (
     <html>
       <head>
         <HeadContent />
       </head>
       <body>
-        {children}
+        <header>
+	        <nav>
+		        {navigation.map(item => {
+			        return (
+								<li key={item.path}>
+									<Link to={item.path}>{item.label}</Link>
+								</li>
+			        )
+		        })}
+	        </nav>
+        </header>
+        <QueryClientProvider client={queryClient}>
+	        {children}
+        </QueryClientProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>

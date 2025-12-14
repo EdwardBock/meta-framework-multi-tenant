@@ -13,14 +13,14 @@ export const getPage = createServerFn({
     .handler(async (args)=> {
         const repo = args.context.repo;
         const path = args.data.path;
-        
+
         if (!repo) {
             throw notFound();
         }
 
         const tenant = await repo.getSlug();
-        
-        const cachedPage = await getCachedPage(tenant, path);
+
+        const cachedPage = await (getCachedPage(tenant, path) as ReturnType<typeof repo.getPage>);
         if (cachedPage) {
             return cachedPage;
         }
