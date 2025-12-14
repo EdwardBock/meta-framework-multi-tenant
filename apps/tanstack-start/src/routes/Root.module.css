@@ -1,0 +1,6 @@
+.link {
+	color: red;
+	&[data-status="active"] {
+		color: green;
+	}
+}

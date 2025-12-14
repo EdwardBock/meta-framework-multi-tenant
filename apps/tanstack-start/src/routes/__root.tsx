@@ -9,6 +9,7 @@ import {seo} from '~/utils/seo'
 import {getTheme} from "~/data/theme";
 import {getNavigation} from "~/data/navigation";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import styles from './Root.module.css'
 
 export const Route = createRootRoute({
 	loader: async ()=>{
@@ -80,7 +81,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		        {navigation.map(item => {
 			        return (
 								<li key={item.path}>
-									<Link to={item.path}>{item.label}</Link>
+									<Link to={item.path}
+									      className={styles.link}
+									>{item.label}</Link>
 								</li>
 			        )
 		        })}
