@@ -65,11 +65,11 @@ export const Route = createRootRoute({
   shellComponent: RootDocument,
 })
 
-const queryClient = new QueryClient()
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	const {navigation} = Route.useLoaderData();
 	console.debug("Root", navigation);
+
   return (
     <html>
       <head>
@@ -89,9 +89,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		        })}
 	        </nav>
         </header>
-        <QueryClientProvider client={queryClient}>
-	        {children}
-        </QueryClientProvider>
+        {children}
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
